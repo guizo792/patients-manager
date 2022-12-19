@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="utf-8">
+<title>patients</title>
+<link rel="stylesheet" type="text/css"
+	href="/webjars/bootstrap/4.1.3/bootstrap.min.css">
+<script type="text/javascript" src="/webjars/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript"
+	src="/webjars/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+	<nav class="navbar navbar-expand-sm bg-dark navbar-dark px-3 d-flex justify-content-between">
+		<div class="d-flex">
+			<!-- Brand -->
+		<a class="navbar-brand" th:href="@{patients}">MANAGER</a>
+
+		<!-- Links -->
+		<ul class="navbar-nav">
+			<li class="nav-item"><a class="nav-link" th:href="@{patients}">Home</a></li>
+			<li class="nav-item"><a class="nav-link" href="#">Doctors</a></li>
+
+			<!-- Dropdown -->
+			<li class="nav-item dropdown"><a
+				class="nav-link dropdown-toggle" href="#" id="navbardrop"
+				data-toggle="dropdown"> Other </a>
+				<div class="dropdown-menu">
+					<a class="dropdown-item" th:href="@{formPatient}">Add</a> <a class="dropdown-item"
+						href="#">Search</a>
+				</div></li>
+		</ul>
+		</div>
+		<ul class="navbar-nav float-right">
+			<!-- Dropdown -->
+			<li class="nav-item dropdown"><a
+				class="nav-link dropdown-toggle" href="#" id="navbardrop"
+				data-toggle="dropdown"> [username] </a>
+				<div class="dropdown-menu">
+					<a class="dropdown-item" href="#">Login</a> <a
+						class="dropdown-item" href="#">Logout</a> <a class="dropdown-item"
+						href="#">Profile</a>
+				</div></li>
+		</ul>
+	</nav>
+
+	<section layout:fragment="pageContent" ></section>
+
+</body>
+</html>

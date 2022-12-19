@@ -3,12 +3,16 @@ package com.example.springmvc.web;
 import java.awt.print.Pageable;
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.springmvc.dao.PatientRepository;
@@ -37,9 +41,26 @@ public class PatientController {
 		return "patients";
 	}
 	
-	@GetMapping(path = "/deletePatient")
-	public String delete(Long id, String keyword, int page, int size) {
+	@GetMapping(path = "/deletePatient") 
+	public String delete(Long id, String keyword, int page, int size) { 
 		patientRepository.deleteById(id);
+		// set the page to the previous one if there is no more element in the current
+		if (patientRepository.findByNameContains(keyword, PageRequest.of(page, size)).getContent().size() == 0 && page > 0) {
+			page--;
+		};
 		return "redirect:/patients?page="+page+"&size="+size+"&keyword="+keyword;
+	}
+	
+	@GetMapping(path="/formPatient")
+	public String formPatient(Model model) {
+		model.addAttribute("patient", new Patient());
+		return "formPatient";
+	}
+	
+	@PostMapping("/savePatient")
+	public String savePatient(@Valid Patient patient, BindingResult bindingResult) {
+		if (bindingResult.hasErrors()) return "formPatient";
+		patientRepository.save(patient);
+		return "formPatient";
 	}
 }

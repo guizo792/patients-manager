@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="template1">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+	integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+	crossorigin="anonymous">
+<title>form patient | patients manager</title>
+</head>
+<body>
+	<div layout:fragment="pageContent">
+		<div class="container col-md-8 col-md-offset-2 col-xs-12">
+			<form th:action="@{savePatient}" method="post">
+				<div class="form-group">
+					<label class="control-label"> Name: </label> <input type="text"
+						name="name" class="form-control" th:value="${patient.name}" /> <span th:errors="${patient.name}"></span>
+				</div>
+				<div class="form-group">
+					<label class="control-label"> Birth date: </label> <input
+						type="date" name="dateNaissance" class="form-control" th:value="${patient.dateNaissance}" /> <span th:errors="${patient.dateNaissance}"></span>
+				</div>
+				<div class="form-group">
+					<label class="control-label"> Sick </label> <input type="checkbox"
+						name="malade" th:checked="${patient.malade}" /> <span th:errors="${patient.malade}"></span>
+				</div>
+				<button class="btn btn-primary">Submit</button>
+			</form>
+		</div>
+	</div>
+</body>
+</html>
