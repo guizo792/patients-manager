@@ -10,6 +10,7 @@ import javax.persistence.TemporalType;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -34,4 +35,6 @@ public class Patient {
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date dateNaissance;
 	private boolean malade;
+	@DecimalMin("2")
+	private int score;
 }
