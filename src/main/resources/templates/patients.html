@@ -2,7 +2,7 @@
 
 <html xmlns:th="http://www.thymeleaf.org"
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	layout:decorate="template1">
+	layout:decorate="~{template1}">
 <head>
 <meta charset="utf-8">
 <link rel="stylesheet"
@@ -27,7 +27,7 @@
 						</div>
 						<input type="text" name="keyword" th:value="${keyword}"
 							class="form-control" placeholder="enter a keyword..." />
-						<button type="submit" class="btn btn-success">Search</button>
+						<button type="submit" class="btn btn-secondary">Search</button>
 					</div>
 				</form>
 				<table class="table table-striped ">
@@ -49,7 +49,7 @@
 							class="btn btn-danger"
 							th:href="@{deletePatient(id=${p.id}, keyword=${keyword}, page=${currentPage}, size=${size})}">Delete</a></td>
 						<td><a
-							class="btn btn-secondary"
+							class="btn btn-success"
 							th:href="@{editPatient(id=${p.id}, keyword=${keyword}, page=${currentPage}, size=${size})}">Edit</a></td>
 					</tr>
 				</table>

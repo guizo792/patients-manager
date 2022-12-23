@@ -12,8 +12,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.springmvc.dao.PatientRepository;
 import com.example.springmvc.entities.Patient;
@@ -58,21 +60,25 @@ public class PatientController {
 	@GetMapping(path = "/formPatient")
 	public String formPatient(Model model) {
 		model.addAttribute("patient", new Patient());
+		model.addAttribute("mode", "new");
 		return "formPatient";
 	}
 
 	@PostMapping("/savePatient")
-	public String savePatient(@Valid Patient patient, BindingResult bindingResult) {
+	public String savePatient( Model model, @Valid Patient patient, BindingResult bindingResult) {
 		if (bindingResult.hasErrors())
 			return "formPatient";
 		patientRepository.save(patient);
-		return "formPatient";
+		model.addAttribute("patient", patient);
+		return "confirmation";
 	}
 	
 	@GetMapping(path = "/editPatient")
 	public String editPatient(Model model, Long id) {
 		Patient patient = patientRepository.findById(id).get();
 		model.addAttribute("patient", patient);
+		model.addAttribute("mode", "edit");
 		return "formPatient";
 	}
+	
 }
