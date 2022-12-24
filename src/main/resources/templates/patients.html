@@ -16,7 +16,7 @@
 		<div class="container  mt-2"></div>
 		<div class="card ">
 			<div class="card-header container">
-				<div class="card-header bg-primary mb-3 text-white text-center">List
+				<div class="card-header bg-primary mb-3 text-white text-center">📃 List
 					of patients</div>
 			</div>
 			<div class="card-body container">
@@ -27,7 +27,7 @@
 						</div>
 						<input type="text" name="keyword" th:value="${keyword}"
 							class="form-control" placeholder="enter a keyword..." />
-						<button type="submit" class="btn btn-secondary">Search</button>
+						<button type="submit" class="btn btn-secondary">🔎 Search</button>
 					</div>
 				</form>
 				<table class="table table-striped ">
@@ -47,10 +47,10 @@
 						<td><a
 							onclick="return confirm('Are you sure you want to delete patient')"
 							class="btn btn-danger"
-							th:href="@{deletePatient(id=${p.id}, keyword=${keyword}, page=${currentPage}, size=${size})}">Delete</a></td>
+							th:href="@{deletePatient(id=${p.id}, keyword=${keyword}, page=${currentPage}, size=${size})}">🗑 Delete</a></td>
 						<td><a
 							class="btn btn-success"
-							th:href="@{editPatient(id=${p.id}, keyword=${keyword}, page=${currentPage}, size=${size})}">Edit</a></td>
+							th:href="@{editPatient(id=${p.id}, keyword=${keyword}, page=${currentPage}, size=${size})}">✏ Edit</a></td>
 					</tr>
 				</table>
 
