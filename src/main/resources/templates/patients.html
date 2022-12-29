@@ -2,7 +2,9 @@
 
 <html xmlns:th="http://www.thymeleaf.org"
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	layout:decorate="~{template1}">
+	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+	layout:decorate="~{template1}"
+	>
 <head>
 <meta charset="utf-8">
 <link rel="stylesheet"
@@ -14,9 +16,9 @@
 <body>
 	<div layout:fragment="pageContent">
 		<div class="container  mt-2"></div>
-		<div class="card ">
+		<div class="card mb-4">
 			<div class="card-header container">
-				<div class="card-header bg-primary mb-3 text-white text-center">📃 List
+				<div class="card-header bg-primary text-white text-center">📃 List
 					of patients</div>
 			</div>
 			<div class="card-body container">
@@ -44,11 +46,11 @@
 						<td th:text="${p.dateNaissance}"></td>
 						<td th:text="${p.malade}"></td>
 						<td th:text="${p.score}"></td>
-						<td><a
+						<td sec:authorize="hasRole('ROLE_ADMIN')"><a
 							onclick="return confirm('Are you sure you want to delete patient')"
 							class="btn btn-danger"
 							th:href="@{deletePatient(id=${p.id}, keyword=${keyword}, page=${currentPage}, size=${size})}">🗑 Delete</a></td>
-						<td><a
+						<td sec:authorize="hasRole('ROLE_ADMIN')"><a
 							class="btn btn-success"
 							th:href="@{editPatient(id=${p.id}, keyword=${keyword}, page=${currentPage}, size=${size})}">✏ Edit</a></td>
 					</tr>
