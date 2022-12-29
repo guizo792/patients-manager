@@ -26,7 +26,7 @@ public class PatientController {
 	@Autowired
 	private PatientRepository patientRepository;
 
-	@GetMapping(path = "/index")
+	@GetMapping(path = "/")
 	public String index() {
 		return "index";
 	}

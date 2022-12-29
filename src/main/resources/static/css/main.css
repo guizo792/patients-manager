@@ -1,0 +1,46 @@
+@charset "utf-8";
+
+#page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+*::-webkit-scrollbar {
+  width: 0;
+}
+
+*::-webkit-scrollbar-track {
+  background-color: #fff;
+  border-radius: 50px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: #ACC8E5;
+  border-radius: 50px;
+}
+
+.nav-background {
+	background-color: #ACC8E5;
+}
+ 
+#content-wrap {
+  padding-bottom: 2.5rem;    /* Footer height */
+}
+
+.css-footer {
+  border: solid 1px #ACC8E5; 
+}
+
+.radius-button {
+	border-radius: 0.8rem;
+}
+
+.css-nav-item {
+	-webkit-transition: all 0.3s !important;
+  transition: all 0.3s !important;	
+}
+
+.css-nav-item:hover { 
+	background-color: rgb(131, 173, 216);
+	border-radius: 6px
+}
