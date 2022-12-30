@@ -44,3 +44,18 @@
 	background-color: rgb(131, 173, 216);
 	border-radius: 6px
 }
+
+.css-title {
+	background-color: #D6E7FF !important;
+	color: #0D3665 !important;
+}
+
+.css-gap {
+	gap: .6rem;
+}
+
+.icon-label-couple {
+	display: flex !important;
+	justify-content: space-between !important; 
+	align-items: center !important; 
+}

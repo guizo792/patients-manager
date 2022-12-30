@@ -16,7 +16,7 @@
 		<div class="container my-5">
 			<div class="col-md-6 container">
 				<div class="card ">
-					<div class="card-header text-center" style="background-color: #D6E7FF;">Sign in</div>
+					<div class="card-header text-center css-title css-gap d-flex justify-content-center align-items-center"><iconify-icon icon="prime:sign-in"></iconify-icon><span>Sign in</span></div>
 					<div class="card-body">
 						<div th:if="${param.error}" class="text-danger text-center my-2" style="background-color: #FFD6D6; border-radius: 6px; padding: 10px;">Bad Credentials</div>
 						<div th:if="${param.loggedout}" class="text-success text-center my-2" style="background-color: #D7FED7; border-radius: 6px; padding: 10px;">Logged out successfully</div>
